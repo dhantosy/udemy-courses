@@ -1,0 +1,44 @@
+.image-preview {
+	display: inline-block;
+	position: relative;
+
+	.glyphicon {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 50px;
+		color: #fff;
+		opacity: 0.5;
+	}
+
+	.inset {
+		position: absolute;
+		height: 30px;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: #fff;
+		text-align: center;
+		opacity: 0.7;
+		padding-top: 5px;
+	}
+
+	.views-count {
+		font-weight: bold;
+	}
+
+	div {
+		height: 200px;
+		width: 200px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	video {
+		height: 200px;
+		width: 200px;
+		background-color: #000;
+	}
+}

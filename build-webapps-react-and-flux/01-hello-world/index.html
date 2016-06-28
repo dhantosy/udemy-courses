@@ -1,0 +1,26 @@
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+</head>
+<body>
+</body>
+
+<script type="text/jsx">
+  // Define a `class`
+  var HelloWorld = React.createClass({
+    render: function() {
+      return <section className="sub-section arrow bg-keuntungan">
+      <div className="row text-center">
+        <h2 className="content__title">Cicipi Keistimewaannya!</h2>
+        <p>Berbagai keistimewaan KASKUS Plus menanti untuk Agan cicipi nih! Setiap keistimewaan yang ada so pasti akan memudahkan berbagai aktivitas Agan di KASKUS. Inilah fitur-fitur yang bisa Agan dapetin sebagai member <strong>KASKUS Plus!</strong></p>
+      </div>
+    </section>
+    }
+  });
+
+  // React, please render this class
+  var element = React.createElement(HelloWorld);
+
+  // React, after you render this class, please place it in my body tag
+  React.render(element, document.body);
+</script>
