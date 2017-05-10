@@ -12,3 +12,4 @@
 3. Can use property binding ( [property]="data" )
 4. Can react to events (Event Binding)
 5. Can use two-way-binding ( [(ngModel)]="data" )
+6. Do not mix string interpolation and property binding
