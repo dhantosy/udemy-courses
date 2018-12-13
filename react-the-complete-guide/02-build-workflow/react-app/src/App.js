@@ -15,7 +15,11 @@ class App extends Component {
   }
 
   handleSwitchName = () => {
-
+    this.setState({
+      persons: [
+        { name: 'Dan', age: 18 }
+      ]
+    })
   }
 
   render() {
