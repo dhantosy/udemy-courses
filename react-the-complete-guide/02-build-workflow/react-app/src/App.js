@@ -14,10 +14,10 @@ class App extends Component {
     ]
   }
 
-  handleSwitchName = () => {
+  handleSwitchName = (newName) => {
     this.setState({
       persons: [
-        { name: 'Dan', age: 18 }
+        { name: newName, age: 18 }
       ]
     })
   }
@@ -32,15 +32,15 @@ class App extends Component {
         { /* pass props to children */ }
         { /* <Person name="Dhanto" age="30" /> */}
         { /* passing state */ }
+        { /* passing state through method to other component that does not have direct access to the state by creating "click" property */ }
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
-          { /* passing state through method to other component that does not have direct access to the state */ }
-          click={this.handleSwitchName}
+          click={this.handleSwitchName.bind(this, "DanSan")}
         />
         { /* anything between opening and closing of component, is includes in props.children */ }
         <Person name="Santika" age="28">So fun!</Person>
-        <button onClick={ this.handleSwitchName }>Switch Name</button>
+        <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name</button>
       </div>
     );
   }
