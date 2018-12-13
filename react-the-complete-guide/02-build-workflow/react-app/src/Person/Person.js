@@ -10,9 +10,9 @@ const person = (props) => {
   // use parenthesis to enable multiline
   return ( 
     <div>
-      <p>I'm { props.name } and I am { props.age } years old!</p>
+      <p onClick={props.click}>I'm {props.name} and I am {props.age} years old!</p>
       { /* children refers to elements between opening and closing in the component */ }
-      <p>{ props.children }</p>
+      <p>{props.children}</p>
     </div>
     )
 }

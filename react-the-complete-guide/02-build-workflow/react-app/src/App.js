@@ -32,7 +32,12 @@ class App extends Component {
         { /* pass props to children */ }
         { /* <Person name="Dhanto" age="30" /> */}
         { /* passing state */ }
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age } />
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}
+          { /* passing state through method to other component that does not have direct access to the state */ }
+          click={this.handleSwitchName}
+        />
         { /* anything between opening and closing of component, is includes in props.children */ }
         <Person name="Santika" age="28">So fun!</Person>
         <button onClick={ this.handleSwitchName }>Switch Name</button>
