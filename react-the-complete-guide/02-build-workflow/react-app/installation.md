@@ -1,0 +1,2 @@
+- create react app <appfoldername>
+- npm start
