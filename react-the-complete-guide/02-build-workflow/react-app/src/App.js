@@ -31,6 +31,13 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px'
+    };
+
     // return React.createElement('div', { className: 'App' }, 
     //   React.createElement('h1', {}, 'Hello!'));
     // is the same as:
@@ -53,7 +60,9 @@ class App extends Component {
         { /* another way of passing argument: */ }
         { /* when using arrow function, it creates return if used without {} */ }
         <br/>
-        <button onClick={() => this.handleSwitchName('Dan14')}>Switch Name 2</button>
+        <button 
+          style={style} 
+          onClick={() => this.handleSwitchName('Dan14')}>Switch Name 2</button>
       </div>
     );
   }
