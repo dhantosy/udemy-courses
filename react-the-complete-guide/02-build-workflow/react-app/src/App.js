@@ -14,6 +14,10 @@ class App extends Component {
     ]
   }
 
+  handleSwitchName = () => {
+
+  }
+
   render() {
     // return React.createElement('div', { className: 'App' }, 
     //   React.createElement('h1', {}, 'Hello!'));
@@ -27,7 +31,7 @@ class App extends Component {
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age } />
         { /* anything between opening and closing of component, is includes in props.children */ }
         <Person name="Santika" age="28">So fun!</Person>
-        <button>Switch Name</button>
+        <button onClick={ this.handleSwitchName }>Switch Name</button>
       </div>
     );
   }
