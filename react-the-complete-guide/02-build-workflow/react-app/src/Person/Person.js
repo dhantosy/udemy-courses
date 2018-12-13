@@ -4,12 +4,13 @@
 
 // do not have to import component because it contains only a function.
 import React from 'react';
+import './Person.css';
 
 // passing props from parent component
 const person = (props) => {
   // use parenthesis to enable multiline
   return ( 
-    <div>
+    <div className="Person">
       <p onClick={props.click}>I'm {props.name} and I am {props.age} years old!</p>
       { /* children refers to elements between opening and closing in the component */ }
       <p>{props.children}</p>
