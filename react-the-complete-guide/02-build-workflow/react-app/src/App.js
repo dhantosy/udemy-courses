@@ -40,7 +40,11 @@ class App extends Component {
         />
         { /* anything between opening and closing of component, is includes in props.children */ }
         <Person name="Santika" age="28">So fun!</Person>
-        <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name</button>
+        <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name 1</button>
+        { /* another way of passing argument: */ }
+        { /* when using arrow function, it creates return if used without {} */ }
+        <br/>
+        <button onClick={() => this.handleSwitchName('Dan14')}>Switch Name 2</button>
       </div>
     );
   }
