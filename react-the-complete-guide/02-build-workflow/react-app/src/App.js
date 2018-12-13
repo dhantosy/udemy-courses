@@ -22,6 +22,14 @@ class App extends Component {
     })
   }
 
+  handleChangeName = (event) => {
+    this.setState({
+      persons: [
+        { name: event.target.value, age: 18 }
+      ]
+    })
+  }
+
   render() {
     // return React.createElement('div', { className: 'App' }, 
     //   React.createElement('h1', {}, 'Hello!'));
@@ -37,6 +45,7 @@ class App extends Component {
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
           click={this.handleSwitchName.bind(this, "DanSan")}
+          changed={this.handleChangeName}
         />
         { /* anything between opening and closing of component, is includes in props.children */ }
         <Person name="Santika" age="28">So fun!</Person>
