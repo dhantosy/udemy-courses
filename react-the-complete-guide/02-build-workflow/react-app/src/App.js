@@ -47,28 +47,34 @@ class App extends Component {
       padding: '8px'
     };
 
+    let persons = null;
+
+    if (this.state.showPersons) {
+      persons = (
+        // { /* pass props to children */ }
+        // { /* <Person name="Dhanto" age="30" /> */}
+        // { /* passing state */ }
+        // {  passing state through method to other component that does not have direct access to the state by creating "click" property  }
+        <div>
+          <Person 
+            name={this.state.persons[0].name} 
+            age={this.state.persons[0].age}
+            click={this.handleSwitchName.bind(this, "DanSan")}
+            changed={this.handleChangeName}
+          />
+          { /* anything between opening and closing of component, is includes in props.children */ }
+          <Person name="Santika" age="28">So fun!</Person>
+        </div>
+      )
+    }
+
     // return React.createElement('div', { className: 'App' }, 
     //   React.createElement('h1', {}, 'Hello!'));
     // is the same as:
     return (
       <div className="App">
         <h1>Hi!</h1>
-        { /* pass props to children */ }
-        { /* <Person name="Dhanto" age="30" /> */}
-        { /* passing state */ }
-        { /* passing state through method to other component that does not have direct access to the state by creating "click" property */ }
-        { this.state.showPersons ? 
-          <div>
-            <Person 
-              name={this.state.persons[0].name} 
-              age={this.state.persons[0].age}
-              click={this.handleSwitchName.bind(this, "DanSan")}
-              changed={this.handleChangeName}
-            />
-            { /* anything between opening and closing of component, is includes in props.children */ }
-            <Person name="Santika" age="28">So fun!</Person>
-          </div> : null
-        }
+        {persons}
         <br/>
         <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name 1</button>
         { /* another way of passing argument: */ }
