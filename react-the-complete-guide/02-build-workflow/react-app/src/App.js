@@ -11,7 +11,8 @@ class App extends Component {
     persons: [
       { name: 'Dhanto', age: 30 },
       { name: 'Santika', age: 28 },
-    ]
+    ],
+    showPersons: false
   }
 
   handleSwitchName = (newName) => {
