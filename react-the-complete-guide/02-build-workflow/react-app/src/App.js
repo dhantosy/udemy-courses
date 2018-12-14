@@ -56,14 +56,20 @@ class App extends Component {
         // { /* passing state */ }
         // {  passing state through method to other component that does not have direct access to the state by creating "click" property  }
         <div>
-          <Person 
+          { /* map function converts arrays, it maps all elements in a given array */ }
+          { /* it takes an element of the input, so a single person */ }
+          { /* the function will executed to every element in the array */ }
+          {this.state.persons.map(person => {
+            return <Person name={person.name} age={person.age} />
+          })}
+          { /* <Person 
             name={this.state.persons[0].name} 
             age={this.state.persons[0].age}
             click={this.handleSwitchName.bind(this, "DanSan")}
             changed={this.handleChangeName}
-          />
+          /> */ }
           { /* anything between opening and closing of component, is includes in props.children */ }
-          <Person name="Santika" age="28">So fun!</Person>
+          { /* <Person name="Santika" age="28">So fun!</Person> */ }
         </div>
       )
     }
