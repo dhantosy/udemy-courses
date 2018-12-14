@@ -31,6 +31,14 @@ class App extends Component {
     })
   }
 
+  togglePersonHandler = () => {
+    const showPersons = this.state.showPersons;
+
+    this.setState({
+      showPersons: !showPersons
+    })
+  }
+
   render() {
     const style = {
       backgroundColor: 'white',
