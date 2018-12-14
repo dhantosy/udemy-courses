@@ -1,2 +1,4 @@
 - create react app <appfoldername>
 - npm start
+- if there is error in eslint:
+-- sudo npm install -g eslint@5.6.0
