@@ -32,7 +32,10 @@ class App extends Component {
   }
 
   handleDeleteName = (personIndex) => {
-    const persons = this.state.persons;
+    // slice() copies the full array, then create a new that stored to the persons
+    // const persons = this.state.persons.slice();
+    // spread operator spreads element in the array into a list of elements which then added to the original array, so we have a new array
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({
       persons: persons
