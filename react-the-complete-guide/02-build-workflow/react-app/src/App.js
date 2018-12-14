@@ -48,7 +48,7 @@ class App extends Component {
         { /* <Person name="Dhanto" age="30" /> */}
         { /* passing state */ }
         { /* passing state through method to other component that does not have direct access to the state by creating "click" property */ }
-        { this.state.showPerson ? 
+        { this.state.showPersons ? 
           <div>
             <Person 
               name={this.state.persons[0].name} 
