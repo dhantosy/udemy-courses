@@ -9,8 +9,8 @@ class App extends Component {
   // if state is changed, component will rerender DOM 
   state = {
     persons: [
-      { name: 'Dhanto', age: 30 },
-      { name: 'Santika', age: 28 },
+      { id: '291282', name: 'Dhanto', age: 30 },
+      { id: '019231', name: 'Santika', age: 28 },
     ],
     showPersons: false
   }
@@ -35,6 +35,7 @@ class App extends Component {
     // slice() copies the full array, then create a new that stored to the persons
     // const persons = this.state.persons.slice();
     // spread operator spreads element in the array into a list of elements which then added to the original array, so we have a new array
+    // we should update state immutably. means we create a copy then update the new state
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({
@@ -76,6 +77,7 @@ class App extends Component {
               click={this.handleDeleteName.bind(this, index)}
               name={person.name} 
               age={person.age} 
+              key={person.id}
             />
           })}
           { /* <Person 
