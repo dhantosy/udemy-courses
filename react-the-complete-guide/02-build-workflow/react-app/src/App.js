@@ -31,6 +31,14 @@ class App extends Component {
     })
   }
 
+  handleDeleteName = (personIndex) => {
+    const persons = this.state.persons;
+    persons.splice(personIndex, 1);
+    this.setState({
+      persons: persons
+    })
+  }
+
   togglePersonHandler = () => {
     const showPersons = this.state.showPersons;
 
@@ -59,8 +67,13 @@ class App extends Component {
           { /* map function converts arrays, it maps all elements in a given array */ }
           { /* it takes an element of the input, so a single person */ }
           { /* the function will executed to every element in the array */ }
-          {this.state.persons.map(person => {
-            return <Person name={person.name} age={person.age} />
+          { /* map function has a second argument, the index in the array  */ }
+          {this.state.persons.map((person, index) => {
+            return <Person 
+              click={this.handleDeleteName.bind(this, index)}
+              name={person.name} 
+              age={person.age} 
+            />
           })}
           { /* <Person 
             name={this.state.persons[0].name} 
