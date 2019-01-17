@@ -66,7 +66,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px'
@@ -103,7 +104,9 @@ class App extends Component {
           { /* anything between opening and closing of component, is includes in props.children */ }
           { /* <Person name="Santika" age="28">So fun!</Person> */ }
         </div>
-      )
+      );
+
+      style.backgroundColor = 'red';
     }
 
     // return React.createElement('div', { className: 'App' }, 
@@ -112,17 +115,16 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi!</h1>
-        {persons}
-        <br/>
-        <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name 1</button>
+        <div style={{marginBottom: "20px"}}>
+          <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name 1</button>
+         </div> 
         { /* another way of passing argument: */ }
         { /* when using arrow function, it creates return if used without {} */ }
-        <br/>
-        <button 
-          style={style} 
-          onClick={() => this.handleSwitchName('Dan14')}>Switch Name 2</button>
-        <br/>
-        <button onClick={this.togglePersonHandler}>Show Persons</button>
+        <div style={{marginBottom: "20px"}}>
+          <button onClick={() => this.handleSwitchName('Dan14')}>Switch Name 2</button>
+        </div>
+        <button style={style} onClick={this.togglePersonHandler}>Show Persons</button>
+        {persons}
       </div>
     );
   }
