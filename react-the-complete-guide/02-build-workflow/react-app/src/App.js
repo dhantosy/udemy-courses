@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Radium, { StyleRoot } from 'radium'; // enables pseudo and media query in inline styles
 import Person from './Person/Person';
 
 // class has properties
@@ -71,7 +72,11 @@ class App extends Component {
       color: 'white',
       font: 'inherit',
       border: '1px solid blue',
-      padding: '8px'
+      padding: '8px',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     };
 
     let persons = null;
@@ -108,6 +113,10 @@ class App extends Component {
       );
 
       style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
     }
 
     let classes = [];
@@ -122,21 +131,23 @@ class App extends Component {
     //   React.createElement('h1', {}, 'Hello!'));
     // is the same as:
     return (
-      <div className="App">
-        <h1 className={classes.join(' ')}>Hi!</h1>
-        <div style={{marginBottom: "20px"}}>
-          <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name 1</button>
-         </div> 
-        { /* another way of passing argument: */ }
-        { /* when using arrow function, it creates return if used without {} */ }
-        <div style={{marginBottom: "20px"}}>
-          <button onClick={() => this.handleSwitchName('Dan14')}>Switch Name 2</button>
+      <StyleRoot>
+        <div className="App">
+          <h1 className={classes.join(' ')}>Hi!</h1>
+          <div style={{marginBottom: "20px"}}>
+            <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name 1</button>
+           </div> 
+          { /* another way of passing argument: */ }
+          { /* when using arrow function, it creates return if used without {} */ }
+          <div style={{marginBottom: "20px"}}>
+            <button onClick={() => this.handleSwitchName('Dan14')}>Switch Name 2</button>
+          </div>
+          <button style={style} onClick={this.togglePersonHandler}>Show Persons</button>
+          {persons}
         </div>
-        <button style={style} onClick={this.togglePersonHandler}>Show Persons</button>
-        {persons}
-      </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App);
