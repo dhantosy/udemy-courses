@@ -11,6 +11,7 @@ class App extends Component {
     persons: [
       { id: '291282', name: 'Dhanto', age: 30 },
       { id: '019231', name: 'Santika', age: 28 },
+      { id: '812211', name: 'Yudha', age: 25 },
     ],
     showPersons: false
   }
@@ -109,12 +110,20 @@ class App extends Component {
       style.backgroundColor = 'red';
     }
 
+    let classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red');
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold');
+    }
+
     // return React.createElement('div', { className: 'App' }, 
     //   React.createElement('h1', {}, 'Hello!'));
     // is the same as:
     return (
       <div className="App">
-        <h1>Hi!</h1>
+        <h1 className={classes.join(' ')}>Hi!</h1>
         <div style={{marginBottom: "20px"}}>
           <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name 1</button>
          </div> 
