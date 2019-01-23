@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 // import Radium, { StyleRoot } from 'radium'; // enables pseudo and media query in inline styles
-import Person from './Person/Person';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Person from '../Persons/Person/Person';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 // class has properties
 // property is variable of class
