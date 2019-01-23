@@ -67,17 +67,19 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    };
+    // const style = {
+    //   backgroundColor: 'green',
+    //   color: 'white',
+    //   font: 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   ':hover': {
+    //     backgroundColor: 'lightgreen',
+    //     color: 'black'
+    //   }
+    // };
+
+    let btnClass = '';
 
     let persons = null;
 
@@ -112,11 +114,13 @@ class App extends Component {
         </div>
       );
 
-      style.backgroundColor = 'red';
+      // style.backgroundColor = 'red';
       // style[':hover'] = {
       //   backgroundColor: 'salmon',
       //   color: 'black'
       // }
+
+      btnClass = classes.red;
     }
 
     let assignedClasses = [];
@@ -142,7 +146,7 @@ class App extends Component {
           <div style={{marginBottom: "20px"}}>
             <button onClick={() => this.handleSwitchName('Dan14')}>Switch Name 2</button>
           </div>
-          <button style={style} onClick={this.togglePersonHandler}>Show Persons</button>
+          <button className={btnClass} onClick={this.togglePersonHandler}>Show Persons</button>
           {persons}
         </div>
       // </StyleRoot>
