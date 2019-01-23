@@ -5,20 +5,14 @@
 // do not have to import component because it contains only a function.
 import React from 'react';
 import './Person.css';
-import Radium from 'radium'; // enables pseudo and media query in inline styles
+// import Radium from 'radium'; // enables pseudo and media query in inline styles
 
 // passing props from parent component
 const person = (props) => {
 
-  const style = {
-    '@media (min-width: 640px)': {
-      width: '450px'
-    }
-  };
-
   // use parenthesis to enable multiline
   return ( 
-    <div className="Person" style={style}>
+    <div className="Person">
       <p onClick={props.click}>I'm {props.name} and I am {props.age} years old!</p>
       { /* children refers to elements between opening and closing in the component */ }
       <p>{props.children}</p>
@@ -27,4 +21,5 @@ const person = (props) => {
     )
 }
 
-export default Radium(person);
+// export default Radium(person);
+export default person;

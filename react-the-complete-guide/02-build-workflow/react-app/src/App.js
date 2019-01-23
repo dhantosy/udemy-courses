@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium, { StyleRoot } from 'radium'; // enables pseudo and media query in inline styles
+// import Radium, { StyleRoot } from 'radium'; // enables pseudo and media query in inline styles
 import Person from './Person/Person';
 
 // class has properties
@@ -113,10 +113,10 @@ class App extends Component {
       );
 
       style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      }
+      // style[':hover'] = {
+      //   backgroundColor: 'salmon',
+      //   color: 'black'
+      // }
     }
 
     let classes = [];
@@ -131,7 +131,7 @@ class App extends Component {
     //   React.createElement('h1', {}, 'Hello!'));
     // is the same as:
     return (
-      <StyleRoot>
+      // <StyleRoot>
         <div className="App">
           <h1 className={classes.join(' ')}>Hi!</h1>
           <div style={{marginBottom: "20px"}}>
@@ -145,9 +145,10 @@ class App extends Component {
           <button style={style} onClick={this.togglePersonHandler}>Show Persons</button>
           {persons}
         </div>
-      </StyleRoot>
+      // </StyleRoot>
     );
   }
 }
 
-export default Radium(App);
+// export default Radium(App);
+export default App;
