@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './App.css';
 // import Radium, { StyleRoot } from 'radium'; // enables pseudo and media query in inline styles
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 // class has properties
 // property is variable of class
@@ -95,13 +96,14 @@ class App extends Component {
           { /* the function will executed to every element in the array */ }
           { /* map function has a second argument, the index in the array  */ }
           {this.state.persons.map((person, index) => {
-            return <Person 
-              click={this.handleDeleteName.bind(this, index)}
-              name={person.name} 
-              age={person.age} 
-              key={person.id}
-              changed={(event) => this.handleChangeName(event, person.id)}
-            />
+            return <ErrorBoundary key={person.id}>
+              <Person 
+                click={this.handleDeleteName.bind(this, index)}
+                name={person.name} 
+                age={person.age} 
+                changed={(event) => this.handleChangeName(event, person.id)}
+              />
+            </ErrorBoundary>
           })}
           { /* <Person 
             name={this.state.persons[0].name} 
