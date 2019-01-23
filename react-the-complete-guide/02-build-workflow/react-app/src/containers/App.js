@@ -3,6 +3,7 @@ import classes from './App.css';
 // import Radium, { StyleRoot } from 'radium'; // enables pseudo and media query in inline styles
 import Persons from '../Persons/Persons';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import Cockpit from '../Cockpit/Cockpit';
 
 // class has properties
 // property is variable of class
@@ -80,8 +81,6 @@ class App extends Component {
     //   }
     // };
 
-    let btnClass = '';
-
     let persons = null;
 
     if (this.state.showPersons) {
@@ -116,16 +115,6 @@ class App extends Component {
       //   backgroundColor: 'salmon',
       //   color: 'black'
       // }
-
-      btnClass = classes.red;
-    }
-
-    let assignedClasses = [];
-    if (this.state.persons.length <= 2) {
-      assignedClasses.push(classes.red);
-    }
-    if (this.state.persons.length <= 1) {
-      assignedClasses.push(classes.bold);
     }
 
     // return React.createElement('div', { className: 'App' }, 
@@ -134,7 +123,11 @@ class App extends Component {
     return (
       // <StyleRoot>
         <div className={classes.App}>
-          <h1 className={assignedClasses.join(' ')}>Hi!</h1>
+          <Cockpit
+            showPersons={this.state.showPersons}
+            persons={this.state.persons}
+            clicked={this.togglePersonHandler}
+          />
           <div style={{marginBottom: "20px"}}>
             <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name 1</button>
            </div> 
@@ -143,7 +136,6 @@ class App extends Component {
           <div style={{marginBottom: "20px"}}>
             <button onClick={() => this.handleSwitchName('Dan14')}>Switch Name 2</button>
           </div>
-          <button className={btnClass} onClick={this.togglePersonHandler}>Show Persons</button>
           {persons}
         </div>
       // </StyleRoot>
