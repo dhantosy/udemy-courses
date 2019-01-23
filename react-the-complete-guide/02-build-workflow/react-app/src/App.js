@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 // import Radium, { StyleRoot } from 'radium'; // enables pseudo and media query in inline styles
 import Person from './Person/Person';
 
@@ -119,12 +119,12 @@ class App extends Component {
       // }
     }
 
-    let classes = [];
+    let assignedClasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      assignedClasses.push(classes.bold);
     }
 
     // return React.createElement('div', { className: 'App' }, 
@@ -132,8 +132,8 @@ class App extends Component {
     // is the same as:
     return (
       // <StyleRoot>
-        <div className="App">
-          <h1 className={classes.join(' ')}>Hi!</h1>
+        <div className={classes.App}>
+          <h1 className={assignedClasses.join(' ')}>Hi!</h1>
           <div style={{marginBottom: "20px"}}>
             <button onClick={this.handleSwitchName.bind(this, "Dan")}>Switch Name 1</button>
            </div> 

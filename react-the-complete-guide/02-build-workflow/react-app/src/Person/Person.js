@@ -4,7 +4,7 @@
 
 // do not have to import component because it contains only a function.
 import React from 'react';
-import './Person.css';
+import classes from './Person.css';
 // import Radium from 'radium'; // enables pseudo and media query in inline styles
 
 // passing props from parent component
@@ -12,7 +12,7 @@ const person = (props) => {
 
   // use parenthesis to enable multiline
   return ( 
-    <div className="Person">
+    <div className={classes.Person}>
       <p onClick={props.click}>I'm {props.name} and I am {props.age} years old!</p>
       { /* children refers to elements between opening and closing in the component */ }
       <p>{props.children}</p>
