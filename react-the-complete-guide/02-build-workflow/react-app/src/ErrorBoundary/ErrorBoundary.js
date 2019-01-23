@@ -24,6 +24,6 @@ class ErrorBoundary extends Component {
     // return <h1>Something went wwrong</h1>
   }
 
-  export default ErrorBoundary;
-
 }
+
+export default ErrorBoundary;
