@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+// PureComponent is exactly the same as Component except that it handles the shouldComponentUpdate method
+// When props or state changes, PureComponent will do a shallow comparison on both props and state
+import React, { PureComponent } from 'react';
 import Person from './Person/Person';
 
 // stateful component
-class Persons extends Component {
+class Persons extends PureComponent {
   constructor(props) {
     super(props);
   }
@@ -19,10 +21,10 @@ class Persons extends Component {
 
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.persons !== this.props.persons || nextProps.changed !== this.props.changed || nextProps.clicked !== this.props.clicked;
-    // return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps.persons !== this.props.persons || nextProps.changed !== this.props.changed || nextProps.clicked !== this.props.clicked;
+  //   // return true;
+  // }
 
   componentWillUpdate(nextProps, nextState) {
 
