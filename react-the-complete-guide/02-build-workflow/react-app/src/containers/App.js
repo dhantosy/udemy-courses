@@ -8,6 +8,45 @@ import Cockpit from '../Cockpit/Cockpit';
 // class has properties
 // property is variable of class
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    // this.state = {
+    //   persons: [
+    //     { id: '291282', name: 'Dhanto', age: 30 },
+    //     { id: '019231', name: 'Santika', age: 28 },
+    //     { id: '812211', name: 'Yudha', age: 25 },
+    //   ],
+    //   showPersons: false
+    // }
+  }
+
+  componentWillMount() {
+
+  }
+
+  componentDidMount() {
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.persons !== this.state.persons || nextState.showPersons !== this.state.showPersons;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+
+  }
+
+  componentDidUpdate() {
+
+  }
+    
+
   // state is managed inside a component
   // if state is changed, component will rerender DOM 
   state = {
@@ -123,6 +162,7 @@ class App extends Component {
     return (
       // <StyleRoot>
         <div className={classes.App}>
+          <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>
           <Cockpit
             showPersons={this.state.showPersons}
             persons={this.state.persons}
