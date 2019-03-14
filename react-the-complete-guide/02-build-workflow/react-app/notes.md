@@ -7,3 +7,18 @@
 **supported events in react**
 - https://reactjs.org/docs/events.html#supported-events
 
+**stateful vs stateless
+- stateful(containers) has access to state, and lifecycle hooks. used to manage state and access lifecycle.
+- stateless components access props via "props.".
+
+**component lifecycle
+- only available in stateful component
+- during creation: constructor() -> componentWillMount() -> render(), then render child components -> componentDidMount()
+- during update (triggered by Parent): componentWillReceiveProps(nextProps) sync state to props -> shouldComponentUpdate(nextProps, nextState) decide whether to continue or not -> componentWillUpdate(nextState, nextProps) sync state to props -> render() -> update child component props -> componentDidUpdate() cause side effects
+- during update (triggered by internal change): shouldComponentUpdate(nextProps, nextState) -> componentWillUpdate(nextState, nextProps) -> render() -> update child component -> componentDidUpdate().
+
+
+**how react updates the DOM
+- when render() is called, react is not immediately changing the real DOM
+- it compares old virtual DOM, and virtual DOM
+- if there is changes, updates real DOM. if not, it doesnt touch the real DOM
