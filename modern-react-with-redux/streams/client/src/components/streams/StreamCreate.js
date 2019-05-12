@@ -3,13 +3,27 @@ import { Field, reduxForm } from 'redux-form';
 
 class StreamCreate extends React.Component {
 
-  renderInput({ input, label, meta }) {
+  renderError({ error, touched }) {
+    if (error && touched) {
+      return (
+        <div className='ui error message'>
+          <div className='header'>
+            {error}
+          </div>
+        </div>
+      );
+    }
+  }
+
+  renderInput = ({ input, label, meta }) => {
+
+    const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
 
     return (
-        <div className='field'>
+        <div className={className}>
           <label>{label}</label>
-          <input type='text' {...input} />
-          <div>{meta.error}</div>
+          <input type='text' {...input} autoComplete='off' />
+          {this.renderError(meta)}
         </div>
     )
   }
@@ -20,7 +34,7 @@ class StreamCreate extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='ui form'>
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='ui form error'>
         <Field 
           name='stream_title' 
           component={this.renderInput} 
