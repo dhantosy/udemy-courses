@@ -54,16 +54,59 @@ test('counter starts at 0', () => {
   expect(initialCounterState).toBe(0);
 });
 
-test('clicking button increments counter display', () => {
-  const counter = 7;
-  const wrapper = setup(null, { counter });
+// organize by function
+describe('Increment', () => {
+  
+  test('renders increment button', () => {
+    const wrapper = setup();
+    const button = findByTestAttr(wrapper, 'increment-button');
+    expect(button.length).toBe(1);
+  });
 
-  // find button and click
-  const button = findByTestAttr(wrapper, 'increment-button');
-  button.simulate('click');
+  test('clicking increment button increments counter display', () => {
+    const counter = 7;
+    const wrapper = setup(null, { counter });
 
-  // find display and test value
-  const counterDisplay = findByTestAttr(wrapper, 'counter-display');
+    // find button and click
+    const button = findByTestAttr(wrapper, 'increment-button');
+    button.simulate('click');
+    wrapper.update();
 
-  expect(counterDisplay.text()).toContain(counter + 1);
+    // find display and test value
+    const counterDisplay = findByTestAttr(wrapper, 'counter-display');
+    expect(counterDisplay.text()).toContain(counter + 1);
+  });
+});
+
+describe('Decrement', () => {
+
+  test('renders decrement button', () => {
+    const wrapper = setup();
+    const button = findByTestAttr(wrapper, 'decrement-button');
+    expect(button.length).toBe(1);
+  });
+
+  test('clicking decrement button decrements counter display when state is greater than 0', () => {
+    const counter = 7;
+    const wrapper = setup(null, { counter });
+
+    // find button and click
+    const button = findByTestAttr(wrapper, 'decrement-button');
+    button.simulate('click');
+    wrapper.update();
+
+    // find display and test value
+    const counterDisplay = findByTestAttr(wrapper, 'counter-display');
+    expect(counterDisplay.text()).toContain(counter - 1);
+  });
+
+  test('error does not show when not needed', () => {
+    const wrapper = setup();
+    const errorDiv = findByTestAttr(wrapper, 'error-message');
+
+    // using enzyme's ".hasClass()" method
+    // http://airbnb.io/enzyme/docs/api/ShallowWrapper/hasClass.html
+    const errorHasHiddenClass = errorDiv.hasClass('hidden');
+    expect(errorHasHiddenClass).toBe(true);
+  });
 });
