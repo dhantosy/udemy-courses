@@ -19,12 +19,10 @@ const setup = (props={}) => {
   return shallow(<Congrats {...setupProps} />)
 }
 
-
 test('renders without error', () => {
   const wrapper = setup();
   const component = findByTestAttr(wrapper, 'component-congrats');
   expect(component.length).toBe(1);
-
 });
 
 test('renders no text when `success` prop is false', () => {
