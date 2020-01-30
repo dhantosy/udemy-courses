@@ -7,4 +7,7 @@ import '@testing-library/jest-dom/extend-expect';
 import Enzyme, { shallow } from 'enzyme';
 import EnyzmeAdapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new EnyzmeAdapter() });
+Enzyme.configure({ 
+  adapter: new EnyzmeAdapter(),
+  disableLifecycleMethods: true,
+});
