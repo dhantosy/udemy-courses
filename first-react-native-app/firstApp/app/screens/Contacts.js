@@ -8,13 +8,12 @@ import { ListItem } from '../components/ListItem';
 class Contacts extends Component {
 
   handleRowPress = (item) => {
-    return null;
+    this.props.navigation.navigate('Details', item);
   }
 
   render() {
     return (
       <SafeAreaView>
-        <Text>Contact Screen</Text>
         <FlatList
           style={{ backgroundColor: colors.background }}
           data={contacts}
