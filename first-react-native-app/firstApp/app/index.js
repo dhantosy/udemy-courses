@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Contacts from './screens/Contacts';
+import MyNavigator from './config/router.js';
 
 const App = () => {
-  return <Contacts />;
+  return (
+    <MyNavigator />
+  )
 };
 
 export default App;
