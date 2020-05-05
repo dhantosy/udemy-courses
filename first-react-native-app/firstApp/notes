@@ -1,0 +1,4 @@
+to automatic way for installing native dependencies. It is an alternative to manually linking the dependency in your project:
+
+- npx react-native link (dependency-name)
+- restart server
