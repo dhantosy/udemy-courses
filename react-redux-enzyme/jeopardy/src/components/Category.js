@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import Clue from './Clue'
 
-class Category extends Component {
+export class Category extends Component {
   constructor() {
     super()
 
@@ -26,9 +26,6 @@ class Category extends Component {
 
     return (
       <div>
-        <Link to='/' className='link-home'>
-          <h4>Home</h4>
-        </Link>
         <h2>{title}</h2>
         {
           this.state.clues.map(clue => {
@@ -42,8 +39,21 @@ class Category extends Component {
   }
 }
 
+class LinkedCategory extends Component {
+  render() {
+    return (
+      <>
+        <Link to='/' className='link-home'>
+          <h4>Home</h4>
+        </Link>
+        <Category category={this.props.category} />
+      </>
+    )
+  }
+}
+
 function mapStateToProps(state) {
   return { category: state.category }
 }
 
-export default connect(mapStateToProps, null)(Category)
+export default connect(mapStateToProps, null)(LinkedCategory)
