@@ -1,0 +1,26 @@
+body {
+  padding: 5%;
+  text-align: center;
+}
+
+.link-home {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+}
+
+.clue {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.text-hidden {
+  visibility: hidden;
+}
+
+.text-revealed {
+  visibility: visible;
+}
