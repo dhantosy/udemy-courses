@@ -8,5 +8,17 @@ const props = { categories }
 describe('App', () => {
   const app = shallow(<App {...props} />)
 
-  
+  it('renders the title', () => {
+    expect(app.find('h1').text()).toEqual('Jeopardy!')
+  })
+
+  it('creates the correct number of links', () => {
+    expect(app.find('Link').length).toEqual(categories.length)
+  })
+
+  it('titles the links correctly', () => {
+    app.find('h4').forEach((linkTitle, index) => {
+      expect(linkTitle.text()).toEqual(categories[index].title)
+    })
+  })
 })
