@@ -10,3 +10,9 @@ export const clue = {
   answer: 'answer one',
   value: 200,
 }
+
+
+export const clues = [
+  clue,
+  { id: 1, question: 'question 2', answer: ' question 3', value: 400 }
+]
