@@ -9,7 +9,7 @@ const ShowDetails = ({ show }) => {
       <div className='show-details__poster' style={{ backgroundImage: `url(${image.original})` }}></div>
       <h1>{name}</h1>
       <div>{parse(summary)}</div>
-      <Cast cast={_embedded.cast} />
+      {_embedded.cast.length > 0 && <Cast cast={_embedded.cast} />}
 
       <style jsx>{`
         .show-details__poster {
@@ -21,11 +21,12 @@ const ShowDetails = ({ show }) => {
   )
 }
 
-ShowDetails.getInitialProps = async () => {
-  const response = await axios.get('http://api.tvmaze.com/shows/1?embed=cast')
+ShowDetails.getInitialProps = async ({ query }) => {
+  const showId = query.showId
+  const response = await axios.get(`http://api.tvmaze.com/shows/${showId}?embed=cast`)
 
   return {
-    show: response.data
+    show: response.data,
   }
 }
 
