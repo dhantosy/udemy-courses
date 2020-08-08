@@ -1,18 +1,10 @@
-const Thumbnail = ({ imageUrl, caption}) => {
+import styles from './Thumbnail.module.scss'
+
+const Thumbnail = ({ imageUrl = 'https://via.placeholder.com/210x295', caption}) => {
   return (
     <div className='thumbnail'>
-      <img src={imageUrl} alt={caption} className='thumbnail__image' />
-      <h4 className='thumbnail__caption'>{caption}</h4>
-
-      <style jsx>{`
-        .thumbnail__image {
-          width: 100%;
-        }
-
-        .thumbnail__caption {
-          text-align: center;
-        }
-      `}</style>
+      <img src={imageUrl} alt={caption} className={styles.thumbnail__image} />
+      <h4 className={styles.thumbnail__caption}>{caption}</h4>
     </div>
   )
 }
