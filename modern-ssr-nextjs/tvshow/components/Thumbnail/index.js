@@ -6,14 +6,28 @@ const Thumbnail = ({
   caption,
   href = '',
   as = '',
+  small = false
 }) => (
   <div className='thumbnail'>
     <Link href={href} as={as}>
       <a>
-        <img src={imageUrl} alt={caption} className={styles.thumbnail__image} />
-        <h4 className={styles.thumbnail__caption}>{caption}</h4>
+        <img src={imageUrl} alt={caption} className='thumbnail__image' />
+        <h4 className='thumbnail__caption'>{caption}</h4>
       </a>
     </Link>
+
+    <style jsx>
+      {`
+        .thumbnail__image {
+          width: ${small ? '100px' : '100%'};
+        }
+
+        .thumbnail__caption {
+          text-align: center;
+          padding: 10px;
+        }
+      `}
+    </style>
   </div>
 )
 
