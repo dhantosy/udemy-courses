@@ -2,7 +2,17 @@ const Thumbnail = ({ imageUrl, caption}) => {
   return (
     <div className='thumbnail'>
       <img src={imageUrl} alt={caption} className='thumbnail__image' />
-      <h3 className='thumbnail__caption'>{caption}</h3>
+      <h4 className='thumbnail__caption'>{caption}</h4>
+
+      <style jsx>{`
+        .thumbnail__image {
+          width: 100%;
+        }
+
+        .thumbnail__caption {
+          text-align: center;
+        }
+      `}</style>
     </div>
   )
 }
