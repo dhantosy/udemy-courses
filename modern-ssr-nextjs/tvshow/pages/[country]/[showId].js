@@ -1,9 +1,21 @@
 import axios from 'axios'
 import parse from 'html-react-parser'
 import Cast from '../../components/Cast'
+import Error from 'next/error'
+import CustomError from '../_error'
 
-const ShowDetails = ({ show }) => {
+const ShowDetails = ({ show = {}, statusCode }) => {
   const { name, image, summary, _embedded } = show;
+
+  if (statusCode) {
+    return (
+      <CustomError 
+        statusCode={statusCode} 
+        title="Oops! There was a problem here." 
+      />
+    )
+  }
+
   return (
     <div className='show-details'>
       <div className='show-details__poster' style={{ backgroundImage: `url(${image.original})` }}></div>
@@ -22,11 +34,17 @@ const ShowDetails = ({ show }) => {
 }
 
 ShowDetails.getInitialProps = async ({ query }) => {
-  const showId = query.showId
-  const response = await axios.get(`http://api.tvmaze.com/shows/${showId}?embed=cast`)
+  try {
+    const showId = query.showId
+    const response = await axios.get(`http://api.tvmaze.com/shows/${showId}?embed=cast`)
 
-  return {
-    show: response.data,
+    return {
+      show: response.data,
+    }
+  } catch (error) {
+    return {
+      statusCode: error.response ? error.response.status : 500
+    }
   }
 }
 
