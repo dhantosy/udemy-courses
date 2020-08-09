@@ -30,9 +30,6 @@ const Cast = ({ cast }) => {
           .cast__list {
             display: flex;
             overflow-x: scroll;
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
           }
 
           .cast__list > :global(li) {
