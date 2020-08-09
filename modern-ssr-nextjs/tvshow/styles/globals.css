@@ -24,4 +24,5 @@ ul {
 @font-face {
   font-family: 'raleway';
   src: url('../public/fonts/raleway/Raleway-Regular.ttf') format('truetype');
+  font-display: swap
 }
