@@ -44,6 +44,7 @@ const Header = () => {
             background: #333;
             color: #fff;
             text-align: center;
+            margin-bottom: 10px;
           }
         `}
       </style>

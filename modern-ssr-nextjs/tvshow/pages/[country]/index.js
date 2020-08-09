@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Thumbnail from '../../components/Thumbnail'
-import Header from '../../components/Header'
 
 const Home = ({ shows, country }) => {
 
@@ -29,7 +28,6 @@ const Home = ({ shows, country }) => {
 
   return (
     <div>
-      <Header />
       <ul className='tvshows-grid'>
         {renderShows()}
       </ul>
