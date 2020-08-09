@@ -1,15 +1,17 @@
 import Router from 'next/router'
 
-const Home = () => {
-  // render in client side
-  console.log('browser', process.browser)
+const Home = () => null
 
-  return (
-    <div>
-      This is homepage
-    </div>
-  )
-}
+// const Home = () => {
+//   // render in client side
+//   console.log('browser', process.browser)
+
+//   return (
+//     <div>
+//       This is homepage
+//     </div>
+//   )
+// }
 
 Home.getInitialProps = context => {
   // render in server side
