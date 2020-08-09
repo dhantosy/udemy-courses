@@ -1,7 +1,12 @@
 import axios from 'axios'
 import Thumbnail from '../../components/Thumbnail'
+import CustomError from '../_error'
 
-const Home = ({ shows, country }) => {
+const Home = ({ shows, country, statusCode }) => {
+
+  if (statusCode) {
+    return <CustomError statusCode={statusCode} />
+  }
 
   // fetch api from client side
   // useEffect(() => {
@@ -62,15 +67,21 @@ Home.getInitialProps = async context => {
   //can only access props from the params passed in this component
   //not compatible with client side props
 
-  const country = context.query.country || 'us'
+  try {
+    const country = context.query.country || 'us'
 
-  const response = await axios.get(
-    `http://api.tvmaze.com/schedule?country=${country}&date=2014-12-01`
-  )
+    const response = await axios.get(
+      `http://api.tvmaze.com/schedule?country=${country}&date=2014-12-01`
+    )
 
-  return {
-    shows: response.data,
-    country
+    return {
+      shows: response.data,
+      country
+    }
+  } catch(error) {
+    return {
+      statusCode: error.response ? error.response.status : 500
+    }
   }
 }
 

@@ -6,7 +6,10 @@ const CustomError = ({ statusCode }) => {
     )  
   }
   return (
-    <div>Oops! something was wrong</div>
+    <div>
+      <h2>{statusCode}</h2>
+      <h2>Oops! something was wrong</h2>
+    </div>
   )
 }
 
